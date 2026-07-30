@@ -12,11 +12,13 @@
 <meta property="og:url" content="https://originaltear.github.io/" />
 <meta property="og:title" content="Teardrop: Emotional Map" />
 <meta property="og:description" content="Map where life's most emotional moments happened. Log a cry in seconds, spot patterns you'd never notice alone, and share only what you choose." />
-<meta property="og:image" content="https://originaltear.github.io/icon.png" />
+<meta property="og:image" content="https://originaltear.github.io/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="586" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Teardrop: Emotional Map" />
 <meta name="twitter:description" content="Map where life's most emotional moments happened. Private by default." />
-<meta name="twitter:image" content="https://originaltear.github.io/icon.png" />
+<meta name="twitter:image" content="https://originaltear.github.io/og.jpg" />
 <meta name="theme-color" content="#070a14" />
 
 <style>
@@ -68,6 +70,29 @@
   /* ── Emotion strip ── */
   .strip { display: flex; height: 5px; margin-top: clamp(40px,7vw,70px); border-radius: 3px; overflow: hidden; }
   .strip span { flex: 1; }
+
+  /* ── Screenshot rail ──
+     Deliberately full-bleed: the rail is always wider than the viewport, so a
+     half-visible next shot at the edge is what tells people it scrolls. */
+  .shots { padding: clamp(30px,5vw,48px) 0 clamp(6px,2vw,16px); }
+  .rail {
+    display: flex; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+    padding: 6px max(22px, calc((100vw - 1000px) / 2)) 20px;
+    scrollbar-width: thin; scrollbar-color: #223044 transparent;
+  }
+  .rail::-webkit-scrollbar { height: 8px; }
+  .rail::-webkit-scrollbar-thumb { background: #223044; border-radius: 99px; }
+  .rail::-webkit-scrollbar-track { background: transparent; }
+  .rail img {
+    flex: none; height: clamp(360px, 56vw, 480px); width: auto; display: block;
+    border-radius: 20px; border: 1px solid var(--line); scroll-snap-align: center;
+    box-shadow: 0 20px 46px rgba(0,0,0,.5);
+  }
+  .hint {
+    text-align: center; color: var(--faint); font-size: .82rem;
+    letter-spacing: .06em; text-transform: uppercase;
+  }
 
   /* ── Sections ── */
   section { padding: clamp(52px,9vw,86px) 0; }
@@ -140,9 +165,20 @@
   </div>
 </header>
 
+<div class="shots">
+  <div class="rail">
+    <img src="shots/map.jpg" width="832" height="900" alt="The Teardrop world map, with logged moments pinned where they happened" />
+    <img src="shots/log.jpg" width="416" height="900" alt="Logging a cry: pick an emotion, set the intensity, add a note, photo or voice recording" />
+    <img src="shots/feed.jpg" width="416" height="900" alt="The feed, showing recent moments shared by people you follow" />
+    <img src="shots/profile.jpg" width="416" height="900" alt="A profile page with cry count, countries visited and unlocked achievements" />
+    <img src="shots/alerts.jpg" width="416" height="900" alt="Notifications for new followers, with follow-back buttons" />
+  </div>
+  <p class="hint">Scroll to see more &rarr;</p>
+</div>
+
 <section>
   <div class="wrap">
-    <h2>Your feelings, on a map</h2>
+    <h2>Built for the moments that stick</h2>
     <p class="sub">Teardrop pins your emotional moments where they actually happened — so you can look back and finally see the shape of your year.</p>
 
     <div class="grid">
