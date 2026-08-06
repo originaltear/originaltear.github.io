@@ -7,16 +7,19 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Same palette as the front page, so the two read as one site rather than
+       two projects that happen to share a domain. */
     :root {
       --bg:        #070a14;
-      --bg-card:   #0d1117;
-      --bg-raised: #111827;
-      --border:    #1f2937;
+      --bg-card:   #0d1420;
+      --bg-raised: #111c2b;
+      --border:    #1b2636;
       --accent:    #6fe0e6;
       --accent-dim:#6fe0e630;
-      --text:      #e8eef7;
-      --text-muted:#94a3b8;
-      --text-dim:  #64748b;
+      --accent-30: #6fe0e64d;
+      --text:      #eaf2f7;
+      --text-muted:#93a7b5;
+      --text-dim:  #64798a;
       --gold:      #f2cf6b;
     }
 
@@ -25,23 +28,26 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
       line-height: 1.7;
       min-height: 100vh;
     }
 
     /* ── Header ── */
     header {
-      background: var(--bg-card);
-      border-bottom: 1px solid var(--border);
-      padding: 28px 24px 24px;
+      background: rgba(13,20,32,.86);
+      padding: 24px 0 0;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 10;
       backdrop-filter: blur(12px);
     }
+
+    /* Side padding lives here, not on the header, so the strip below can run
+       edge to edge and read as the header's bottom border. */
+    .hgroup { padding: 0 24px 20px; }
 
     .logo {
       display: inline-flex;
@@ -51,15 +57,21 @@
       color: inherit;
     }
 
-    .logo-drop {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--accent) 0%, #4ab8be 100%);
-      border-radius: 50% 50% 50% 0;
-      transform: rotate(-45deg);
-      box-shadow: 0 0 18px var(--accent-dim);
+    /* The real teardrop from the front page. The old CSS-only drop was a rotated
+       rounded square, which is a different shape from the actual logo. */
+    .mark {
+      width: 34px;
+      height: 34px;
+      display: block;
       flex-shrink: 0;
+      filter: drop-shadow(0 4px 16px rgba(111,224,230,.38));
     }
+
+    /* The front page's ten emotion colours, reused as the header's bottom edge.
+       It stays on screen through a long legal document and is the cheapest way
+       to make this page feel like the same product. */
+    .strip { display: flex; height: 4px; }
+    .strip span { flex: 1; }
 
     .logo-name {
       font-size: 20px;
@@ -117,7 +129,7 @@
     h2 .num {
       background: var(--accent-dim);
       color: var(--accent);
-      border: 1px solid var(--accent)33;
+      border: 1px solid var(--accent-30);
       border-radius: 8px;
       width: 28px;
       height: 28px;
@@ -193,7 +205,7 @@
     .email-badge {
       display: inline-block;
       background: var(--accent-dim);
-      border: 1px solid var(--accent)44;
+      border: 1px solid var(--accent-30);
       border-radius: 8px;
       color: var(--accent);
       font-size: 14px;
@@ -202,14 +214,24 @@
       margin-top: 10px;
     }
 
-    /* ── Footer ── */
+    /* ── Footer ── (same shape as the front page's) */
     footer {
       text-align: center;
       color: var(--text-dim);
-      font-size: 13px;
-      padding: 32px 24px;
+      padding: 40px 24px 60px;
       border-top: 1px solid var(--border);
     }
+
+    .flinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 26px;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: .94rem;
+    }
+
+    .copy { color: var(--text-dim); font-size: .84rem; }
 
     /* ── Responsive ── */
     @media (max-width: 520px) {
@@ -221,10 +243,26 @@
 <body>
 
 <header>
-  <a class="logo" href="/">
-    <div class="logo-drop"></div>
-    <span class="logo-name">Teardrop</span>
-  </a>
+  <div class="hgroup">
+    <a class="logo" href="/">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <linearGradient id="d" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#9df0f4" /><stop offset="1" stop-color="#3aa6c9" />
+          </linearGradient>
+        </defs>
+        <path d="M12 2c4.5 6 7 9.3 7 13a7 7 0 0 1-14 0c0-3.7 2.5-7 7-13z" fill="url(#d)" />
+      </svg>
+      <span class="logo-name">Teardrop</span>
+    </a>
+  </div>
+  <div class="strip" aria-hidden="true">
+    <span style="background:#f2cf6b"></span><span style="background:#ef6f6f"></span>
+    <span style="background:#a99cf0"></span><span style="background:#6fa8e0"></span>
+    <span style="background:#ef9bb3"></span><span style="background:#8a9bb5"></span>
+    <span style="background:#8fe0a8"></span><span style="background:#f2a86b"></span>
+    <span style="background:#6fe0e6"></span><span style="background:#9d92ad"></span>
+  </div>
 </header>
 
 <main>
@@ -512,9 +550,14 @@
 </main>
 
 <footer>
-  <p><a href="/">← Back to Teardrop</a></p>
-  <p style="margin-top:10px;">© 2026 Teardrop · <a href="mailto:hello.teardropapp@gmail.com">hello.teardropapp@gmail.com</a></p>
-  <p style="margin-top:6px;">This Privacy Policy was last updated on July 12, 2026.</p>
+  <div class="flinks">
+    <a href="/">&larr; Back to Teardrop</a>
+    <a href="mailto:hello.teardropapp@gmail.com">Contact &amp; support</a>
+    <a href="https://apps.apple.com/app/id6779766330">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.originaltear.teardrop">Google Play</a>
+  </div>
+  <p class="copy">© 2026 Ishaq Ahmed · Every tear has a place.</p>
+  <p class="copy" style="margin-top:6px;">This Privacy Policy was last updated on July 12, 2026.</p>
 </footer>
 
 </body>
