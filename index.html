@@ -66,6 +66,14 @@
   .badge-apple { height: 52px; width: auto; display: block; }
   .badge-google { height: 66px; width: auto; display: block; }
   .free { margin-top: 14px; color: var(--faint); font-size: .88rem; }
+  /* "Private by default" earns a place in the hero rather than only in its own
+     section further down. This app holds the worst nights of people's lives
+     along with where they happened, so "who can see this" is the question
+     everyone arrives with — and everyone sees the hero, while few scroll to
+     section four. The link jumps to the full answer for anyone who wants it. */
+  .free .dot { opacity: .5; margin: 0 4px; }
+  .privlink { color: var(--faint); text-decoration: underline; text-underline-offset: 3px; }
+  .privlink:hover { color: var(--accent); }
 
   /* Rating. Sits under the badges because it answers the question someone has
      the moment they consider tapping one: has anyone else actually used this. */
@@ -158,7 +166,11 @@
         <img class="badge-google" src="badges/google-play.png" alt="Get it on Google Play" />
       </a>
     </div>
-    <p class="free">Free on iPhone and Android</p>
+    <p class="free">
+      Free on iPhone and Android
+      <span class="dot">·</span>
+      <a href="#privacy" class="privlink">Private by default</a>
+    </p>
     <p class="rating"><span class="stars">★★★★★</span> 5.0 on the App Store</p>
 
     <div class="strip" aria-hidden="true">
@@ -222,7 +234,7 @@
   </div>
 </section>
 
-<section>
+<section id="privacy">
   <div class="wrap">
     <div class="privacy">
       <h2>Private by default</h2>
