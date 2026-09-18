@@ -104,6 +104,18 @@
     border-radius: 20px; border: 1px solid var(--line); scroll-snap-align: center;
     box-shadow: 0 20px 46px rgba(0,0,0,.5);
   }
+  /* On a wide screen the swipe rail overflowed: eight frames are wider than the
+     window, so it opened on an empty left margin and cut the last ones off on
+     the right. Above tablet width they sit in a grid instead, all eight
+     visible at once, and there is nothing to scroll. Phones keep the rail. */
+  @media (min-width: 900px) {
+    .rail {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+      max-width: 1040px; margin: 0 auto; padding: 6px 22px 20px; overflow: visible;
+    }
+    .rail img { width: 100%; height: auto; }
+    .shots .hint { display: none; }
+  }
   .hint {
     text-align: center; color: var(--faint); font-size: .82rem;
     letter-spacing: .06em; text-transform: uppercase;
