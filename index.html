@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Teardrop: Mood &amp; Emotion Map — map where you felt it</title>
-<meta name="description" content="Log your cries on a map and watch your emotional year take shape. Private by default, social only when you choose. Free on iPhone and Android." />
+<title>Teardrop: Mood &amp; Emotion Map | Map where you felt it</title>
+<meta name="description" content="Log your cries on a map and watch your emotional year take shape. Every cry is yours to keep private or share, one by one. Free on iPhone and Android." />
 <link rel="icon" href="icon.png" />
 <link rel="apple-touch-icon" href="icon.png" />
 
@@ -13,11 +13,11 @@
 <meta property="og:title" content="Teardrop: Mood &amp; Emotion Map" />
 <meta property="og:description" content="Map where life's most emotional moments happened. Log a cry in seconds, spot patterns you'd never notice alone, and share only what you choose." />
 <meta property="og:image" content="https://teardropapp.com/og.jpg" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="586" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="500" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Teardrop: Mood &amp; Emotion Map" />
-<meta name="twitter:description" content="Map where life's most emotional moments happened. Private by default." />
+<meta name="twitter:description" content="Map where life's most emotional moments happened. You choose who sees each one." />
 <meta name="twitter:image" content="https://teardropapp.com/og.jpg" />
 <meta name="theme-color" content="#070a14" />
 
@@ -66,11 +66,13 @@
   .badge-apple { height: 52px; width: auto; display: block; }
   .badge-google { height: 66px; width: auto; display: block; }
   .free { margin-top: 14px; color: var(--faint); font-size: .88rem; }
-  /* "Private by default" earns a place in the hero rather than only in its own
+  /* The privacy line earns a place in the hero rather than only in its own
      section further down. This app holds the worst nights of people's lives
      along with where they happened, so "who can see this" is the question
-     everyone arrives with — and everyone sees the hero, while few scroll to
-     section four. The link jumps to the full answer for anyone who wants it. */
+     everyone arrives with, and everyone sees the hero while few scroll to
+     section four. The link jumps to the full answer for anyone who wants it.
+     It says "you choose" and not "private by default" because new cries
+     follow the profile's own visibility setting, which starts at everyone. */
   .free .dot { opacity: .5; margin: 0 4px; }
   .privlink { color: var(--faint); text-decoration: underline; text-underline-offset: 3px; }
   .privlink:hover { color: var(--accent); }
@@ -121,7 +123,8 @@
     transition: border-color .2s ease, transform .2s ease;
   }
   .card:hover { border-color: #2b3a4e; transform: translateY(-2px); }
-  .card .ico { font-size: 26px; line-height: 1; display: block; margin-bottom: 14px; }
+  .card .ico { width: 26px; height: 26px; display: block; margin-bottom: 14px;
+    fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .card h3 { font-size: 1.06rem; font-weight: 700; margin-bottom: 7px; letter-spacing: -.01em; }
   .card p { color: var(--muted); font-size: .95rem; }
 
@@ -169,7 +172,7 @@
     <p class="free">
       Free on iPhone and Android
       <span class="dot">·</span>
-      <a href="#privacy" class="privlink">Private by default</a>
+      <a href="#privacy" class="privlink">You choose who sees it</a>
     </p>
     <p class="rating"><span class="stars">★★★★★</span> 5.0 on the App Store</p>
 
@@ -179,17 +182,21 @@
       <span style="background:#ef9bb3"></span><span style="background:#8a9bb5"></span>
       <span style="background:#8fe0a8"></span><span style="background:#f2a86b"></span>
       <span style="background:#6fe0e6"></span><span style="background:#9d92ad"></span>
+      <span style="background:#c9606f"></span><span style="background:#c3cd72"></span>
     </div>
   </div>
 </header>
 
 <div class="shots">
   <div class="rail">
-    <img src="shots/map.jpg" width="832" height="900" alt="The Teardrop world map, with logged moments pinned where they happened" />
-    <img src="shots/log.jpg" width="416" height="900" alt="Logging a cry: pick an emotion, set the intensity, add a note, photo or voice recording" />
-    <img src="shots/feed.jpg" width="416" height="900" alt="The feed, showing recent moments shared by people you follow" />
-    <img src="shots/profile.jpg" width="416" height="900" alt="A profile page with cry count, countries visited and unlocked achievements" />
-    <img src="shots/alerts.jpg" width="416" height="900" alt="Notifications for new followers, with follow-back buttons" />
+    <img src="shots/01.jpg" width="600" height="1300" loading="eager" alt="Every cry has a place: the Teardrop map with drawn emotion pins across Europe" />
+    <img src="shots/02.jpg" width="600" height="1300" loading="eager" alt="Name it before you lose it: logging a cry with twelve emotions and an intensity scale" />
+    <img src="shots/03.jpg" width="600" height="1300" loading="eager" alt="You choose who sees it: each cry can be kept to yourself or shared" />
+    <img src="shots/04.jpg" width="600" height="1300" loading="lazy" alt="You are not the only one: a feed of cries from people you follow" />
+    <img src="shots/05.jpg" width="600" height="1300" loading="lazy" alt="See the pattern: statistics showing which emotions fill your months, a Pro feature" />
+    <img src="shots/06.jpg" width="600" height="1300" loading="lazy" alt="Or log it in two taps: the quick log over the map" />
+    <img src="shots/07.jpg" width="600" height="1300" loading="lazy" alt="Something to come back for: an achievement unlocking" />
+    <img src="shots/08.jpg" width="600" height="1300" loading="lazy" alt="Say it out loud: a cry with a photo and a voice note" />
   </div>
   <p class="hint">Scroll to see more &rarr;</p>
 </div>
@@ -197,36 +204,36 @@
 <section>
   <div class="wrap">
     <h2>Built for the moments that stick</h2>
-    <p class="sub">Teardrop pins your emotional moments where they actually happened — so you can look back and finally see the shape of your year.</p>
+    <p class="sub">Teardrop pins your emotional moments where they actually happened, so you can look back and finally see the shape of your year.</p>
 
     <div class="grid">
       <article class="card">
-        <span class="ico">💧</span>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
         <h3>Log it in seconds</h3>
-        <p>One tap picks the emotion. Add intensity, a note, a photo or a voice recording when you want to say more — or don't, and move on.</p>
+        <p>One tap picks the emotion. Add intensity, a note, a photo or a voice recording when you want to say more. Or don't, and move on.</p>
       </article>
       <article class="card">
-        <span class="ico">🌍</span>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
         <h3>Watch the map fill in</h3>
-        <p>Ten emotions, five intensity levels, every moment placed. Zoom out and notice patterns a journal could never show you.</p>
+        <p>Twelve emotions, five intensity levels, every moment placed. Zoom out and notice patterns a journal could never show you.</p>
       </article>
       <article class="card">
-        <span class="ico">🫂</span>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"/></svg>
         <h3>Share only what you choose</h3>
         <p>Every entry has its own privacy setting. Follow people you trust, send a hug when words don't fit, and be honest without performing.</p>
       </article>
       <article class="card">
-        <span class="ico">📊</span>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
         <h3>See the bigger picture</h3>
         <p>Statistics, streaks, a calendar and country history. Find your heaviest month and your hardest hour of the day.</p>
       </article>
       <article class="card">
-        <span class="ico">🏆</span>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
         <h3>Earn your tears</h3>
-        <p>Unlock achievements and collect Tear emblems as you go. Wear them on your profile — proof you showed up for yourself.</p>
+        <p>Unlock achievements and collect Tear emblems as you go. Wear them on your profile, proof you showed up for yourself.</p>
       </article>
       <article class="card">
-        <span class="ico">💎</span>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg>
         <h3>Teardrop Pro</h3>
         <p>Go ad-free, unlock custom themes, the Crystal Tear emblem and deeper analytics into your emotional patterns.</p>
       </article>
@@ -237,11 +244,11 @@
 <section id="privacy">
   <div class="wrap">
     <div class="privacy">
-      <h2>Private by default</h2>
+      <h2>You choose who sees it</h2>
       <p class="sub">This app holds some of the most personal things you will ever write down. It is built that way from the ground up.</p>
       <ul>
-        <li>Every entry starts private — you decide, one by one, who sees what</li>
-        <li>Your location is read only the moment you log a cry, never tracked in the background</li>
+        <li>Every cry has its own setting: only you, close friends, friends or everyone</li>
+        <li>Your location is only read while the app is open, never tracked in the background</li>
         <li>Export everything, or delete your account permanently, straight from the app</li>
         <li>Your notes, photos and voice recordings are never analysed or sold</li>
       </ul>
